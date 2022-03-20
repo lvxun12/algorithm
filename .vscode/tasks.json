@@ -1,0 +1,55 @@
+// {
+// 	"version": "2.0.0",
+// 	"tasks": [
+// 		{
+// 			"type": "cppbuild",
+// 			"label": "build_task",
+// 			"command": "D:/mingw64/bin/g++.exe",
+// 			"args": [
+// 				"-fdiagnostics-color=always",
+// 				"-g",
+// 				"${file}",
+// 				"-o",
+// 				"\"${workspaceFolder}\\${fileBasenameNoExtension}.exe"
+// 			],
+// 			"options": {
+// 				"cwd": "${fileDirname}"
+// 			},
+// 			"problemMatcher": [
+// 				"$gcc"
+// 			],
+// 			"group": "build",
+// 			"detail": "编译器: D:/mingw64/bin/g++.exe"
+// 		}
+// 	]
+// }
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {"cwd": "${fileDirname}"},
+            "windows": {
+                "command": "g++",
+                "args": [
+                    "-ggdb",
+                    "${file}",
+                    "--std=c++11",
+                    "-o",
+                    "${fileDirname}//build//${fileBasenameNoExtension}.exe"
+                ]
+            }
+        }
+    ]
+}
